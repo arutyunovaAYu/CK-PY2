@@ -18,6 +18,16 @@ BOOKS_DATABASE = [
 # TODO написать класс Book
 class Book():
     def __init__(self, id_:int, name:str, pages:int):
+         """
+         Создание и подготовка к работе объекта "Book"
+
+         :param id_: id книги
+         :param name: название книги
+         :param pages: количество страниц
+
+         Примеры:
+         >>> Book_1 = Book(0, 'Ada', 394) #инициализация экземпляра класса
+         """
         if not isinstance(id_, int):
             raise TypeError('id_ должно быть типа int')
         if id_ < 0:
@@ -44,16 +54,32 @@ class Book():
 # TODO написать класс Library
 class Library:
     def __init__(self, books: list[Book] = None):
+         """
+         Создание и подготовка к работе объекта "Library"
+
+         :param books: список книг
+
+         """
         if books is None:
             books = []
         self.books = books
 
     def get_next_book_id(self, id_: int):
+         """
+         Метод, возвращающий идентификатор для добавления новой книги в библиотеку.
+
+         :return: Если книг в библиотеке нет, то вернуть 1. Если книги есть, то вернуть идентификатор последней книги увеличенный на 1.
+         """
         if len(self.books) == 0:
             return 1
         return self.books[-1].id_ + 1
 
     def get_index_by_book_id(self, id_: int):
+        """
+        Метод, возвращающий индекс книги в списке, который хранится в атрибуте экземпляра класса.
+
+        :return: Если книга существует, то вернуть индекс из списка.
+        """
         for value, books in enumerate(BOOKS_DATABASE):
             if 'id' in books and books['id'] == id_:
                 return value
