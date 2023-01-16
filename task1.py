@@ -15,6 +15,16 @@ BOOKS_DATABASE = [
 # TODO написать класс Book
 class Book():
     def __init__(self, id_:int, name:str, pages:int):
+         """
+         Создание и подготовка к работе объекта "Book"
+
+         :param id_: id книги
+         :param name: название книги
+         :param pages: количество страниц
+
+         Примеры:
+         >>> Book_1 = Book(0, 'Ada', 394) #инициализация экземпляра класса
+         """
         self.id_ = id_
         self.name = name
         self.pages = pages
