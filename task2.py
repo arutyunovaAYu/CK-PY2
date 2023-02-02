@@ -70,6 +70,10 @@ class Library:
         return self.books[-1].id_ + 1
 
     def get_index_by_book_id(self, id_: int):
+        """
+        Метод, возвращающий индекс книги в списке, который хранится в атрибуте экземпляра класса.
+        :return: Если книга существует, то вернуть индекс из списка. Если книги нет, то вызвать ошибку ValueError с сообщением: "Книги с запрашиваемым id не существует"
+        """
         for i, books in enumerate(self.books):
             if books.id_ == id_:
                 return i
